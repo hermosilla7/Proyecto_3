@@ -6,15 +6,8 @@
 	$user_id = $_SESSION['id_user'];
 
 	  
-	$consulta_incidencias = ("SELECT * FROM incidencia order by incidencia.id_incidencia DESC");
+	$consulta_incidencias = ("SELECT * FROM incidencia");
 	$result_incidencias = mysqli_query($con, $consulta_incidencias);
-
-	?>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-	<font color=red><a href="incidencias_admin.php" type="button" class="fa fa-plus-circle fa-5x" style="color:#FF0000">Nueva incidencia</a></font>
-	
-	<i class="fa fa-plus-circle fa-5x" ></i>
-	<?php
 
 	while($incidencia = mysqli_fetch_array($result_incidencias)){
 		$sql_recurso = "SELECT * FROM recurso, reserva WHERE $incidencia[id_recurso] = recurso.id_recurso";

@@ -57,7 +57,7 @@
                   exit();
                 }
                 echo "<div class='cont'><div class='perfillog'>
-                      <h4 style='color:white' 'width:280px'>BENVINGUT - $nomUsuari </h4></div>";
+                      <h4 style='color:white' 'width:280px'>Bienvenido - $nomUsuari </h4></div>";
                       
                 $fichero="img/$user_id".".jpg";
                 if(file_exists($fichero)&&(($user_id) != '')){

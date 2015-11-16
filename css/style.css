@@ -172,6 +172,16 @@ img {
   max-width: 800px;
   padding: 10px;
 }
+
+.contenedor_panel_admin {
+  background: rgba(0, 0, 0, 0) linear-gradient(to right, rgba(255, 255, 255, 1) 0%, rgba(246, 246, 246, 1) 38%, rgba(207, 202, 180, 1) 100%) repeat scroll 0 0;
+  border: 8px solid #fff;
+  border-radius: 5px;
+  margin-left: 0%;
+  max-width: 1000px;
+  padding: 20px;
+}
+
 .form-inline .radio, .form-inline .checkbox {
   display:table-cell;
   margin-bottom:0;

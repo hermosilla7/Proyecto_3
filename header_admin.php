@@ -39,6 +39,8 @@
             <li><a href="admin.php"><img src ='img/logo.png'width='250' heigth='250'/></a></li>
             <li><a href="busqueda_reservas_admin.php" class="navList">Reservas</a></li>
             <li><a href="historial_incidencias_admin.php" class="navList">SAT</a></li>
+            <li><a href="abc_recursos.php" class="navList">Recursos</a></li>
+            <li><a href="abc_usuarios.php" class="navList">Usuarios</a></li>
             <li><a href="logout.php" class="navLogout">Salir</a></li>
             <li>
               <?php
@@ -56,7 +58,7 @@
                   exit();
                 }
                 echo "<div class='cont'><div class='perfillog'>
-                      <h4 style='color:white' 'width:280px'>BENVINGUT - $nomUsuari </h4></div>";
+                      <h4 style='color:white' 'width:280px'>Bienvenido - $nomUsuari </h4></div>";
 
                 $fichero="img/$user_id".".jpg";
                 if(file_exists($fichero)&&(($user_id) != '')){
