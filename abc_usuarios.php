@@ -5,7 +5,9 @@
 	$nomUsuari = $_SESSION['nom'];
 	$user_id = $_SESSION['id_user'];
 
-	  
+?>
+	<h6 color=black align="center"><a href="usuarios_insert.php" type="button" class="fa fa-plus-circle fa-5x" style="color:#444444">Nuevo usuario</a></h6>
+<?php  
 	$consulta_usuarios = ("SELECT * FROM usuario");
 	$result_usuarios = mysqli_query($con, $consulta_usuarios);
 
@@ -18,9 +20,15 @@
 		echo utf8_encode($usuario['pass']);
 		echo "<br/>";
 		echo "<b>Rol:</b> ";
-		echo utf8_encode($usuario['rol']);
+		if ($usuario['rol'] == 1) {
+			echo "Administrador";
+		}
+		else if ($usuario['rol'] == 0) {
+			echo "Usuario";
+		}
+		// echo utf8_encode($usuario['rol']);
 		echo "<br/>";
-		echo "<b>Avatar:</b> ";
+		echo "<b>Avatar:</b>";
 		$fichero="img/$usuario[img]";
                 if(file_exists($fichero)&&(($user_id) != '')){
                   echo "<img src='$fichero' width='50' heigth='50' ></div>";
@@ -28,6 +36,8 @@
                 else{
                   echo "<img src ='img/no_disponible.jpg'width='50' heigth='50'/></div>";
                 }
+        echo "<a href='modificar.php?id=$usuario[id_user]'><i class='fa fa-pencil fa-2x fa-pull-left fa-border' title='modificar' style='color:#444444'></i></a>";
+        echo "<a href='eliminar.php?id=$usuario[id_user]'><i class='fa fa-trash fa-2x fa-pull-left fa-border' title='borrar' style='color:#444444'></i></a>";
 		echo "</div>";
 		echo"</div>";
 	}

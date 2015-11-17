@@ -10,10 +10,10 @@
 	$result_incidencias = mysqli_query($con, $consulta_incidencias);
 
 	?>
-<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-	<font color=red><a href="incidencias_admin.php" type="button" class="fa fa-plus-circle fa-5x" style="color:#FF0000">Nueva incidencia</a></font>
+<!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"> -->
+	<h6 color=black align="center"><a href="incidencias_admin.php" type="button" class="fa fa-plus-circle fa-5x" style="color:#444444">Nueva incidencia</a></h6>
 	
-	<i class="fa fa-plus-circle fa-5x" ></i>
+	<!-- <i class="fa fa-plus-circle fa-5x" ></i> -->
 	<?php
 
 	while($incidencia = mysqli_fetch_array($result_incidencias)){
