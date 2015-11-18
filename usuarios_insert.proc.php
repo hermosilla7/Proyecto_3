@@ -17,13 +17,11 @@
 			$ruta=$_FILES["foto"]["tmp_name"];
 			$destino="img/".$foto;
 			copy($ruta, $destino);
-
-			echo "AAAAAAAAAAAAAAA";
 			echo $foto;
 			echo $ruta;
 			echo $destino;
 			//
-			$sql = "INSERT INTO usuario (nom, pass, rol, img) VALUES ('$_REQUEST[nombre]', '$_REQUEST[pass]', $_REQUEST[rol], '$foto')";
+			$sql = "INSERT INTO usuario (nom, pass, rol, img, estado) VALUES ('$_REQUEST[nombre]', '$_REQUEST[pass]', $_REQUEST[rol], '$foto', '1')";
 
 			echo $sql;
 

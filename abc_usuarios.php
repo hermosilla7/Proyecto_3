@@ -12,7 +12,7 @@
 	$result_usuarios = mysqli_query($con, $consulta_usuarios);
 
 	while($usuario = mysqli_fetch_array($result_usuarios)){
-		echo "<div class='contendor3'>";
+		echo "<div class='contenedor_usuarios'>";
 		echo"<div class='textseccion3'><b>Nombre:</b>";
 		echo utf8_encode($usuario['nom']);
 		echo "<br/>";
@@ -26,6 +26,14 @@
 		else if ($usuario['rol'] == 0) {
 			echo "Usuario";
 		}
+		echo "<br/>";
+		echo "<b>Estado:</b> ";
+		if ($usuario['estado'] == 1) {
+			echo "Activo";
+		}
+		else if ($usuario['estado'] == 0) {
+			echo "Inactivo";
+		}
 		// echo utf8_encode($usuario['rol']);
 		echo "<br/>";
 		echo "<b>Avatar:</b>";
@@ -36,8 +44,9 @@
                 else{
                   echo "<img src ='img/no_disponible.jpg'width='50' heigth='50'/></div>";
                 }
-        echo "<a href='modificar.php?id=$usuario[id_user]'><i class='fa fa-pencil fa-2x fa-pull-left fa-border' title='modificar' style='color:#444444'></i></a>";
-        echo "<a href='eliminar.php?id=$usuario[id_user]'><i class='fa fa-trash fa-2x fa-pull-left fa-border' title='borrar' style='color:#444444'></i></a>";
+        echo "<a href='usuarios_modificar.php?id=$usuario[id_user]'><i class='fa fa-pencil fa-2x fa-pull-left fa-border' title='modificar' style='color:#444444'></i></a>";
+        echo "<a href='usuarios_activar_desactivar.proc.php?id=$usuario[id_user]'><i class='fa fa-exchange fa-2x fa-pull-left fa-border' title='activar_desactivar' style='color:#444444'></i></a>";
+
 		echo "</div>";
 		echo"</div>";
 	}

@@ -61,7 +61,13 @@
                 echo "<div class='cont'><div class='perfillog'>
                       <h4 style='color:white' 'width:280px'>Bienvenido - $nomUsuari </h4></div>";
 
-                $fichero="img/$user_id".".jpg";
+                 
+                $consulta_usuarios = ("SELECT img FROM usuario where usuario.id_user = $user_id");
+                $result_usuarios = mysqli_query($con, $consulta_usuarios);
+
+                $usuario = mysqli_fetch_array($result_usuarios);    
+
+                $fichero="img/$usuario[img]";
                 if(file_exists($fichero)&&(($user_id) != '')){
                   echo "<div class='perfil'><img src='$fichero' width='50' heigth='50' ></div>";
                 }

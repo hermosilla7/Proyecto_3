@@ -258,3 +258,14 @@ textarea {
   max-width:800px;
   padding:10px;
 }
+
+.contenedor_usuarios {
+  background:linear-gradient(to right, #FFFFFF 0%, #F6F6F6 38%, #CFCAB4 100%) 0 0 repeat scroll rgba(0, 0, 0, 0);
+  border:8px solid #FFFFFF;
+  border-radius:5px;
+  height:180px;
+  margin-left:23%;
+  margin-top:1%;
+  max-width:800px;
+  padding:10px;
+}

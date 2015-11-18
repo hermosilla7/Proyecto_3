@@ -10,6 +10,7 @@ mysql_select_db('club_estudio') or die ('Error al seleccionar la Base de Datos: 
 // Recoger lo que ha introducido el usuario
 $user = $_POST["user"];   
 $passwd = $_POST["passwd"];
+// $estado = $_POST["estado"];
 
 // Select de la tabla donde exista ese usuario
 $result = mysql_query("SELECT * FROM usuario WHERE nom = '$user'");
@@ -18,6 +19,8 @@ $result = mysql_query("SELECT * FROM usuario WHERE nom = '$user'");
 if($row = mysql_fetch_array($result))
 {     
 //Si el usuario es correcto ahora validamos su contraseña
+if($row["estado"] == '1')
+   {
    if($row["pass"] == $passwd)
    {
     //Creamos sesión
@@ -50,11 +53,21 @@ else
    //En caso que el nombre de usuario es incorrecto hacemos un alert y redireccionamos a index.php
   ?>
     <script languaje="javascript">
-        alert("¡No has introducido un usuario correcto!");
+        alert("¡Usuario incorrecto!");
         location.href = "index.html";
     </script>
   <?php   
           
+}
+}
+else{
+   //En caso que el nombre de usuario es incorrecto hacemos un alert y redireccionamos a index.php
+  ?>
+    <script languaje="javascript">
+        alert("¡Usuario incorrecto!");
+        location.href = "index.html";
+    </script>
+  <?php
 }
 
 //Mysql_free_result() se usa para liberar la memoria empleada al realizar una consulta
