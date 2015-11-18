@@ -22,12 +22,7 @@
 							<div class="form-inline form-group">
 								<form action="user.php" method="GET">
 									<div class="checkbox">
-										<label class="checkbox-inline">
-											<input id="checkbox" type="checkbox" name="estado_recurso[]" value="0">Disponible
-										</label>
-										<label class="checkbox-inline">
-											<input id="checkbox" type="checkbox" name="estado_recurso[]" value="1">Ocupado
-										</label>
+
 										<select class="btn btn-default pull-right" id="categoria" name="categoria">
 											<option value="">Seleccionar categoría</option>
 											<?php

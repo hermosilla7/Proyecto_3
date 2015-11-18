@@ -24,14 +24,20 @@ function mostrarConsultaAdmin (){
 
 			echo ' <div class="btn btn-primary" id="btnLiberar'.$recurso['id_recurso'].'" name="btnLiberar">';
 ?>
-				<a href="liberar.php?id_recurso=<?php echo $recurso['id_recurso']; ?>">Liberar</a>
+				<a href="liberar_admin.php?id_recurso=<?php echo $recurso['id_recurso']; ?>">Liberar</a>
             </div> 
 <?php                
 				echo '<div class="btn btn-success" id="btnReparar'.$recurso['id_recurso'].'" name="btnReparar">';
 ?>      	
     				<a href="reparar.php?id_recurso=<?php echo $recurso['id_recurso']; ?>">Reparar</a>
 				</div>
-<?php                 
+<?php     
+
+				echo '<div class="btn btn-danger" id="btnEliminar'.$recurso['id_recurso'].'" name="btnEliminar">';
+?>      	
+    				<a href="reparar.php?id_recurso=<?php echo $recurso['id_recurso']; ?>">Eliminar</a>
+				</div>
+<?php                
 	            echo"  </div>";
 
 
@@ -51,13 +57,15 @@ function mostrarConsultaAdmin (){
 					        $(document).ready(function() {
 								$(document.getElementById('btnLiberar".$recurso['id_recurso']."')).attr('disabled', true);				
 								$(document.getElementById('btnReparar".$recurso['id_recurso']."')).attr('disabled', false);
+								$(document.getElementById('btnEliminar".$recurso['id_recurso']."')).attr('disabled', false);
 							});
 					    </script>";
 			}else if ($recurso["estado"] == "1"){
 				echo 	"<script>
 					        $(document).ready(function() {
 								$(document.getElementById('btnLiberar".$recurso['id_recurso']."')).attr('disabled', false);
-								$(document.getElementById('btnReparar".$recurso['id_recurso']."')).attr('disabled', false);
+								$(document.getElementById('btnReparar".$recurso['id_recurso']."')).attr('disabled', true);
+								$(document.getElementById('btnEliminar".$recurso['id_recurso']."')).attr('disabled', true);
 							});
 					    </script>";
 			} else {
@@ -65,6 +73,7 @@ function mostrarConsultaAdmin (){
 					        $(document).ready(function() {
 								$(document.getElementById('btnLiberar".$recurso['id_recurso']."')).attr('disabled', false);
 								$(document.getElementById('btnReparar".$recurso['id_recurso']."')).attr('disabled', true);
+								$(document.getElementById('btnEliminar".$recurso['id_recurso']."')).attr('disabled', true);
 							});
 					    </script>";
 			}
@@ -87,7 +96,7 @@ function mostrarConsultaAdmin (){
 			$sql.=")";
 		}
 
-		//DATOS MUNICIPIO
+		
 		if(($_REQUEST['categoria'] == '')){
 			// echo "No se muestra municipio";
 		}
@@ -111,7 +120,7 @@ function mostrarConsultaAdmin (){
 			
 			echo ' <div class="btn btn-primary" id="btnLiberar'.$recurso['id_recurso'].'" name="btnLiberar">';
 ?>
-				<a href="liberar.php?id_recurso=<?php echo $recurso['id_recurso']; ?>">Liberar</a>
+				<a href="liberar_admin.php?id_recurso=<?php echo $recurso['id_recurso']; ?>">Liberar</a>
             </div> 
 <?php                
 				echo '<div class="btn btn-success" id="btnReparar'.$recurso['id_recurso'].'" name="btnReparar">';
@@ -119,6 +128,12 @@ function mostrarConsultaAdmin (){
     				<a href="reparar.php?id_recurso=<?php echo $recurso['id_recurso']; ?>">Reparar</a>
 				</div>
 <?php   
+
+				echo '<div class="btn btn-danger" id="btnEliminar'.$recurso['id_recurso'].'" name="btnEliminar">';
+?>      	
+    				<a href="reparar.php?id_recurso=<?php echo $recurso['id_recurso']; ?>">Eliminar</a>
+				</div>
+<?php  
             echo"</div>";
 
 
@@ -139,13 +154,15 @@ function mostrarConsultaAdmin (){
 					        $(document).ready(function() {
 								$(document.getElementById('btnLiberar".$recurso['id_recurso']."')).attr('disabled', true);				
 								$(document.getElementById('btnReparar".$recurso['id_recurso']."')).attr('disabled', false);
+								$(document.getElementById('btnEliminar".$recurso['id_recurso']."')).attr('disabled', false);
 							});
 					    </script>";
 			}else if ($recurso["estado"] == "1"){
 				echo 	"<script>
 					        $(document).ready(function() {
 								$(document.getElementById('btnLiberar".$recurso['id_recurso']."')).attr('disabled', false);
-								$(document.getElementById('btnReparar".$recurso['id_recurso']."')).attr('disabled', false);
+								$(document.getElementById('btnReparar".$recurso['id_recurso']."')).attr('disabled', true);
+								$(document.getElementById('btnEliminar".$recurso['id_recurso']."')).attr('disabled', true);
 							});
 					    </script>";
 			} else {
@@ -153,6 +170,7 @@ function mostrarConsultaAdmin (){
 					        $(document).ready(function() {
 								$(document.getElementById('btnLiberar".$recurso['id_recurso']."')).attr('disabled', false);
 								$(document.getElementById('btnReparar".$recurso['id_recurso']."')).attr('disabled', true);
+								$(document.getElementById('btnEliminar".$recurso['id_recurso']."')).attr('disabled', true);
 							});
 					    </script>";
 			}

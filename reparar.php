@@ -7,7 +7,7 @@
 
 	$fecha = date("Y-m-d H:i:s");
 
-	$sql_update="update recurso set estado = 2 where id_recurso = $_REQUEST[id_recurso]";
+	$sql_update="update recurso set estado = 1 where id_recurso = $_REQUEST[id_recurso]";
 
 
 	$sql_insert="insert into reserva(id_user, id_recurso, dateini) values 
@@ -23,6 +23,6 @@
 		mysqli_close($con);
 
 
-	header("Location: admin.php");
+	header("Location: abc_recursos.php");
 ?>
  

@@ -31,7 +31,7 @@
 		<?php		
 		$fichero="img/$user[img]";
 		$foto = $user['img'];
-		echo "AAAAAAAA";
+		
 		echo $foto;
 		echo "<img src='$fichero' width='50' heigth='50' ></div>";
 		?>
@@ -40,7 +40,7 @@
 
 		<input type="hidden" name="id_usuario_seleccionado" value="<?php echo $id_anterior; ?>">
 
-		<input type="hidden" name="foto_usuario" value="<?php echo $foto; ?>">
+		<!-- <input type="hidden" name="foto_usuario" value="<?php echo $foto_new; ?>"> -->
 
 		<input id="boton" type="submit" value="Guardar">
 

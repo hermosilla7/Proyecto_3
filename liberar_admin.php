@@ -23,6 +23,6 @@
 		mysqli_close($con);
 
 
-	header("Location: admin.php");
+	header("Location: abc_recursos.php");
 ?>
  

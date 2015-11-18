@@ -11,23 +11,22 @@
 
 			$nomUsuari = $_SESSION['nom'];
 			$user_id = $_SESSION['id_user'];
+?>
+			<h6 color=black align="center"><a href="recursos_insert.php" type="button" class="fa fa-plus-circle fa-5x" style="color:#444444">Nuevo recurso</a></h6>
 
-		?>
+
+
+
 		<div class="container" style="margin-top:10px">
 			<div class="row " style="width:75%;margin-top:20px">
-				<h1 style="margin-left:15px">Filtar Resultados</h1>
+				<h1 style="margin-left:15px">Filtrar Resultados</h1>
 				<div class="col-md-20" style="margin-left:20px">
 					<div class="panel panel-default">
 						<div class="panel-body">
 							<div class="form-inline form-group">
-								<form action="user.php" method="GET">
+								<form action="abc_recursos.php" method="GET">
 									<div class="checkbox">
-										<label class="checkbox-inline">
-											<input id="checkbox" type="checkbox" name="estado_recurso[]" value="0">Disponible
-										</label>
-										<label class="checkbox-inline">
-											<input id="checkbox" type="checkbox" name="estado_recurso[]" value="1">Ocupado
-										</label>
+
 										<select class="btn btn-default pull-right" id="categoria" name="categoria">
 											<option value="">Seleccionar categoría</option>
 											<?php

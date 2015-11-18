@@ -269,3 +269,9 @@ textarea {
   max-width:800px;
   padding:10px;
 }
+
+#textarea_insert {
+  margin-left: 1px;
+  margin-top: 0;
+  width: 700px !important;
+}
