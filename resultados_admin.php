@@ -22,6 +22,8 @@ function mostrarConsultaAdmin (){
 			echo "</div><br/>";
 			echo "<div class='botonera'>";
 
+echo "<a href='recursos_modificar.php?id=$recurso[id_recurso]'><i class='fa fa-pencil fa-2x fa-pull-left fa-border' title='modificar' style='color:#444444'></i></a>";
+
 			echo ' <div class="btn btn-primary" id="btnLiberar'.$recurso['id_recurso'].'" name="btnLiberar">';
 ?>
 				<a href="liberar_admin.php?id_recurso=<?php echo $recurso['id_recurso']; ?>">Liberar</a>
