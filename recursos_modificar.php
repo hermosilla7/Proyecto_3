@@ -20,8 +20,8 @@
 		<form action="recursos_modificar.proc.php" method="post" enctype="multipart/form-data">
 		Nombre:
 		<input type="text" name="nombre" value="<?php echo utf8_encode($recurso['nombre']); ?>"><br>
-		Descripción:
-		<input type="pass" name="pass" value="<?php echo utf8_encode($recurso['descr']); ?>"><br>
+		Descripción:<br/>
+		<textarea name="descr" id="textarea_insert" cols="20" rows="5" maxlength="255" ><?php echo utf8_encode($recurso['descr']); ?></textarea><br>
 		Categoría:
 		<select id="selects" name="categoria">
 		<?php
@@ -37,7 +37,7 @@
 						echo ">$tipo[nombre]</option>";
 					}
 	        	?>
-	    </select></br><br>
+	    </select><br>
 
 
 		Imagen:
@@ -51,7 +51,7 @@
 		
 		<input type="file" name="foto" id="foto"></br><br>
 
-		<input type="hidden" name="id_usuario_seleccionado" value="<?php echo $id_anterior; ?>">
+		<input type="hidden" name="id_recurso_seleccionado" value="<?php echo $id_anterior; ?>">
 
 		<!-- <input type="hidden" name="foto_usuario" value="<?php echo $foto_new; ?>"> -->
 

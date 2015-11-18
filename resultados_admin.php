@@ -1,14 +1,13 @@
 <?php
 function mostrarConsultaAdmin (){
 	include 'conexion.php';
+	// include 'header_admin.php';
 
 
-	//como la sentencia SIEMPRE va a buscar todos los registros de la tabla producto, pongo en la variable $sql esa parte de la sentencia que SI o SI, va a contener
-	$sql = "SELECT * FROM recurso WHERE ";
 
 	//VERSION BETA
 	//controlar checkbox
-	if(!isset($_REQUEST['estado_recurso'])){
+	if ($_REQUEST['categoria'] == ""){
 		$sql = "SELECT * FROM recurso";
 		$datos = mysqli_query($con, $sql);
 		//extraemos los productos uno a uno en la variable $anuncio que es un array
@@ -23,6 +22,12 @@ function mostrarConsultaAdmin (){
 			echo "<div class='botonera'>";
 
 echo "<a href='recursos_modificar.php?id=$recurso[id_recurso]'><i class='fa fa-pencil fa-2x fa-pull-left fa-border' title='modificar' style='color:#444444'></i></a>";
+
+				echo '<div class="btn btn-success" id="btnReservar'.$recurso['id_recurso'].'" name="btnReservar">';
+?>      	
+    				<a href="reservar_recurso_admin.php?id_recurso=<?php echo $recurso['id_recurso']; ?>">Reservar</a>
+				</div>
+<?php  
 
 			echo ' <div class="btn btn-primary" id="btnLiberar'.$recurso['id_recurso'].'" name="btnLiberar">';
 ?>
@@ -57,6 +62,7 @@ echo "<a href='recursos_modificar.php?id=$recurso[id_recurso]'><i class='fa fa-p
 			if ($recurso["estado"] == "0"){
 				echo 	"<script>
 					        $(document).ready(function() {
+					        	$(document.getElementById('btnReservar".$recurso['id_recurso']."')).attr('disabled', false);
 								$(document.getElementById('btnLiberar".$recurso['id_recurso']."')).attr('disabled', true);				
 								$(document.getElementById('btnReparar".$recurso['id_recurso']."')).attr('disabled', false);
 								$(document.getElementById('btnEliminar".$recurso['id_recurso']."')).attr('disabled', false);
@@ -65,6 +71,7 @@ echo "<a href='recursos_modificar.php?id=$recurso[id_recurso]'><i class='fa fa-p
 			}else if ($recurso["estado"] == "1"){
 				echo 	"<script>
 					        $(document).ready(function() {
+					        	$(document.getElementById('btnReservar".$recurso['id_recurso']."')).attr('disabled', true);
 								$(document.getElementById('btnLiberar".$recurso['id_recurso']."')).attr('disabled', false);
 								$(document.getElementById('btnReparar".$recurso['id_recurso']."')).attr('disabled', true);
 								$(document.getElementById('btnEliminar".$recurso['id_recurso']."')).attr('disabled', true);
@@ -73,6 +80,7 @@ echo "<a href='recursos_modificar.php?id=$recurso[id_recurso]'><i class='fa fa-p
 			} else {
 				echo 	"<script>
 					        $(document).ready(function() {
+					        	$(document.getElementById('btnReservar".$recurso['id_recurso']."')).attr('disabled', true);
 								$(document.getElementById('btnLiberar".$recurso['id_recurso']."')).attr('disabled', false);
 								$(document.getElementById('btnReparar".$recurso['id_recurso']."')).attr('disabled', true);
 								$(document.getElementById('btnEliminar".$recurso['id_recurso']."')).attr('disabled', true);
@@ -82,33 +90,9 @@ echo "<a href='recursos_modificar.php?id=$recurso[id_recurso]'><i class='fa fa-p
 			
 		}
 	} else {
-		$count = 0;
-		foreach ($_REQUEST['estado_recurso'] as $opcionEstado[]) {
-		$count+=1;			
-		}
-
-		if ($count==0) {
-			$sql = "";
-		}
-		if ($count>0) {
-			$sql.= " (estado=$opcionEstado[0]";
-			if ($count>1){
-				$sql.= " OR estado=$opcionEstado[1]";
-			}
-			$sql.=")";
-		}
-
-		
-		if(($_REQUEST['categoria'] == '')){
-			// echo "No se muestra municipio";
-		}
-		else {
-		$categoria=$_REQUEST['categoria'];
-		$sql .= " AND categoria = $categoria";
-		}
-
-
+		$sql = "SELECT * FROM recurso WHERE categoria = $_REQUEST[categoria]";
 		$datos = mysqli_query($con, $sql);
+
 		//extraemos los productos uno a uno en la variable $anuncio que es un array
 		while($recurso = mysqli_fetch_array($datos)){
 			echo "<div class='contendor'>";
@@ -120,6 +104,11 @@ echo "<a href='recursos_modificar.php?id=$recurso[id_recurso]'><i class='fa fa-p
 			echo "</div><br/>";
 			echo "<div class='botonera'>";
 			
+							echo '<div class="btn btn-success" id="btnReservar'.$recurso['id_recurso'].'" name="btnReservar">';
+?>      	
+    				<a href="reservar_recurso_admin.php?id_recurso=<?php echo $recurso['id_recurso']; ?>">Reservar</a>
+				</div>
+<?php  
 			echo ' <div class="btn btn-primary" id="btnLiberar'.$recurso['id_recurso'].'" name="btnLiberar">';
 ?>
 				<a href="liberar_admin.php?id_recurso=<?php echo $recurso['id_recurso']; ?>">Liberar</a>
@@ -154,6 +143,7 @@ echo "<a href='recursos_modificar.php?id=$recurso[id_recurso]'><i class='fa fa-p
 			if ($recurso["estado"] == "0"){
 				echo 	"<script>
 					        $(document).ready(function() {
+					        	$(document.getElementById('btnReservar".$recurso['id_recurso']."')).attr('disabled', false);
 								$(document.getElementById('btnLiberar".$recurso['id_recurso']."')).attr('disabled', true);				
 								$(document.getElementById('btnReparar".$recurso['id_recurso']."')).attr('disabled', false);
 								$(document.getElementById('btnEliminar".$recurso['id_recurso']."')).attr('disabled', false);
@@ -162,6 +152,7 @@ echo "<a href='recursos_modificar.php?id=$recurso[id_recurso]'><i class='fa fa-p
 			}else if ($recurso["estado"] == "1"){
 				echo 	"<script>
 					        $(document).ready(function() {
+					        	$(document.getElementById('btnReservar".$recurso['id_recurso']."')).attr('disabled', true);
 								$(document.getElementById('btnLiberar".$recurso['id_recurso']."')).attr('disabled', false);
 								$(document.getElementById('btnReparar".$recurso['id_recurso']."')).attr('disabled', true);
 								$(document.getElementById('btnEliminar".$recurso['id_recurso']."')).attr('disabled', true);
@@ -170,6 +161,7 @@ echo "<a href='recursos_modificar.php?id=$recurso[id_recurso]'><i class='fa fa-p
 			} else {
 				echo 	"<script>
 					        $(document).ready(function() {
+					        	$(document.getElementById('btnReservar".$recurso['id_recurso']."')).attr('disabled', true);
 								$(document.getElementById('btnLiberar".$recurso['id_recurso']."')).attr('disabled', false);
 								$(document.getElementById('btnReparar".$recurso['id_recurso']."')).attr('disabled', true);
 								$(document.getElementById('btnEliminar".$recurso['id_recurso']."')).attr('disabled', true);

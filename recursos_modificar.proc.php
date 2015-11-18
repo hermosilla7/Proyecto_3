@@ -16,13 +16,13 @@
 			echo $destino_new;
 	// 
 
-	echo $_REQUEST['id_usuario_seleccionado'];
+	echo $_REQUEST['id_recurso_seleccionado'];
 
 	if ($foto_new != "") {
-		$sql = "UPDATE usuario SET nom='$_REQUEST[nombre]', pass='$_REQUEST[pass]', rol=$_REQUEST[rol], img='$foto_new' WHERE id_user=$_REQUEST[id_usuario_seleccionado]";
+		$sql = "UPDATE recurso SET nombre='$_REQUEST[nombre]', descr='$_REQUEST[descr]', img='$foto_new', categoria='$_REQUEST[categoria]' WHERE id_recurso='$_REQUEST[id_recurso_seleccionado]'";
 	}
 	else{
-		$sql = "UPDATE usuario SET nom='$_REQUEST[nombre]', pass='$_REQUEST[pass]', rol=$_REQUEST[rol] WHERE id_user=$_REQUEST[id_usuario_seleccionado]";
+		$sql = "UPDATE recurso SET nombre='$_REQUEST[nombre]', descr='$_REQUEST[descr]', categoria='$_REQUEST[categoria]' WHERE id_recurso='$_REQUEST[id_recurso_seleccionado]'";
 	}
 	
 
@@ -31,7 +31,7 @@
 	//lanzamos la sentencia sql
 	$datos = mysqli_query($con, $sql);
 
-	header("location: abc_usuarios.php")
+	//header("location: abc_recursos.php")
 
 ?>
 

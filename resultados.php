@@ -2,30 +2,9 @@
 function mostrarConsulta (){
 	include 'conexion.php';
 
-
-	//como la sentencia SIEMPRE va a buscar todos los registros de la tabla producto, pongo en la variable $sql esa parte de la sentencia que SI o SI, va a contener
-	$sql = "SELECT * FROM recurso WHERE ";
-
-	// if(!isset($_REQUEST['estado_recurso'])){
-	// 	echo "ISSET YES";
-	// }
-
-	// if(isset($_REQUEST['estado_recurso'])){
-	// 	echo "ISSET NO";
-	// }
-
-	// if($_REQUEST['estado_recurso'] == null){
-	// 	echo "NULL YES";
-	// }
-
-	// if($_REQUEST['estado_recurso'] == ""){
-	// 	echo "VACIO YES";
-	// }
-
 	//VERSION BETA
 	//controlar checkbox
-	if(!isset($_REQUEST['estado_recurso'])){
-		// echo "AAAAAAAAAAAAAAAAAAAAAAAAAA";
+	if ($_REQUEST['categoria'] == "") {
 		$sql = "SELECT * FROM recurso";
 		$datos = mysqli_query($con, $sql);
 		//extraemos los productos uno a uno en la variable $anuncio que es un array
@@ -86,32 +65,7 @@ function mostrarConsulta (){
 			}
 		}
 	} else {
-		$count = 0;
-		foreach ($_REQUEST['estado_recurso'] as $opcionEstado[]) {
-		$count+=1;			
-		}
-
-		if ($count==0) {
-			$sql = "";
-		}
-		if ($count>0) {
-			$sql.= " (estado=$opcionEstado[0]";
-			if ($count>1){
-				$sql.= " OR estado=$opcionEstado[1]";
-			}
-			$sql.=")";
-		}
-
-		//DATOS MUNICIPIO
-		if(($_REQUEST['categoria'] == '')){
-			// echo "No se muestra municipio";
-		}
-		else {
-		$categoria=$_REQUEST['categoria'];
-		$sql .= " AND categoria = $categoria";
-		}
-
-
+		$sql = "SELECT * FROM recurso WHERE categoria = $_REQUEST[categoria]";
 		$datos = mysqli_query($con, $sql);
 		//extraemos los productos uno a uno en la variable $anuncio que es un array
 		while($recurso = mysqli_fetch_array($datos)){
