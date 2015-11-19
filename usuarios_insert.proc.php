@@ -26,7 +26,7 @@
 			echo $sql;
 
 			//lanzamos la sentencia sql
-			$datos = mysqli_query($con, $sql);
+			$datos = mysqli_query($con, utf8_decode($sql));
 
 			header("location: abc_usuarios.php")
 		?>

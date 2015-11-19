@@ -103,6 +103,9 @@ echo "<a href='recursos_modificar.php?id=$recurso[id_recurso]'><i class='fa fa-p
 			echo utf8_encode($recurso['descr']);
 			echo "</div><br/>";
 			echo "<div class='botonera'>";
+
+			echo "<a href='recursos_modificar.php?id=$recurso[id_recurso]'><i class='fa fa-pencil fa-2x fa-pull-left fa-border' title='modificar' style='color:#444444'></i></a>";
+
 			
 							echo '<div class="btn btn-success" id="btnReservar'.$recurso['id_recurso'].'" name="btnReservar">';
 ?>      	

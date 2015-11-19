@@ -114,4 +114,20 @@ height: auto;
   max-width: 50px;
   opacity: 1;
 }
-  /**/
+ 
+.crunchify-top {
+  background-color: #AFB84E;
+  border-radius: 3.2rem;
+  bottom: 1rem;
+  color: #444444;
+  cursor: pointer;
+  display: none;
+  font-size: 1.4rem;
+  height: 6.2rem;
+  line-height: 6.2rem;
+  position: fixed;
+  right: 1rem;
+  text-align: center;
+  text-decoration: none;
+  width: 6.2rem;
+}

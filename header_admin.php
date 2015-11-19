@@ -9,7 +9,9 @@
 
       <!-- JQUERY -->
       <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script> 
-
+      <script type="text/javascript" src="js/jquery-ui/jquery-ui.min.js"></script> 
+      <link rel="stylesheet" href="js/jquery-ui/jquery-ui.theme.min.css">
+      <link rel="stylesheet" href="js/jquery-ui/jquery-ui.min.css">
       <!-- BOOTSTRAP -->
       <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
       <script src="//netdna.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
@@ -32,6 +34,27 @@
       <link rel="stylesheet" href="css/style.css">
       <link rel="stylesheet" type="text/css" href="css/global.css">
       <link rel="icon" type="image/png" href="img/favicon.png" />
+</script>
+ 
+<script>            
+  jQuery(document).ready(function() {
+    var offset = 220;
+    var duration = 500;
+    jQuery(window).scroll(function() {
+      if (jQuery(this).scrollTop() > offset) {
+        jQuery('.crunchify-top').fadeIn(duration);
+      } else {
+        jQuery('.crunchify-top').fadeOut(duration);
+      }
+    });
+ 
+    jQuery('.crunchify-top').click(function(event) {
+      event.preventDefault();
+      jQuery('html, body').animate({scrollTop: 0}, duration);
+      return false;
+    })
+  });
+</script>
   </head>
   <body>
     <header>
@@ -47,6 +70,8 @@
               <?php
                 //creamos la sesion
                 session_start();
+                //no mostrar warnings
+                error_reporting(0);
 
                 $nomUsuari = $_SESSION['nom'];
                 $user_id = $_SESSION['id_user']; 

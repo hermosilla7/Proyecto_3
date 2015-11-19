@@ -8,6 +8,9 @@
 
       <!-- JQUERY -->
       <script type="text/javascript" src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script> 
+      <script type="text/javascript" src="js/jquery-ui/jquery-ui.min.js"></script> 
+      <link rel="stylesheet" href="js/jquery-ui/jquery-ui.theme.min.css">
+      <link rel="stylesheet" href="js/jquery-ui/jquery-ui.min.css">
 
       <!-- BOOTSTRAP -->
       <link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
@@ -44,6 +47,8 @@
               <?php
                 //creamos la sesion
                 session_start();
+                // no mostrar warnings
+                error_reporting(0);
 
                 $nomUsuari = $_SESSION['nom'];
                 $user_id = $_SESSION['id_user']; 

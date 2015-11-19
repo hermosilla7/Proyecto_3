@@ -22,11 +22,11 @@
 			echo $destino;
 			//
 			$sql = "INSERT INTO recurso (nombre, descr, img, estado, categoria) VALUES ('$_REQUEST[nombre]', '$_REQUEST[contenido]', '$foto', '0', '$_REQUEST[categoria]')";
-
+			$sql=utf8_decode($sql);
 			echo $sql;
 
 			//lanzamos la sentencia sql
-			$datos = mysqli_query($con, $sql);
+			mysqli_query($con, $sql);
 
 			header("location: abc_recursos.php")
 		?>

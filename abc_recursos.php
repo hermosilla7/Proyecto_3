@@ -14,9 +14,6 @@
 ?>
 			<h6 color=black align="center"><a href="recursos_insert.php" type="button" class="fa fa-plus-circle fa-5x" style="color:#444444">Nuevo recurso</a></h6>
 
-
-
-
 		<div class="container" style="margin-top:10px">
 			<div class="row " style="width:75%;margin-top:20px">
 				<h1 style="margin-left:15px">Filtrar Resultados</h1>
