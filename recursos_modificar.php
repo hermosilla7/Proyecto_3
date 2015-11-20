@@ -10,7 +10,6 @@
 	$consulta_recursos = ("SELECT * FROM recurso where id_recurso = $_REQUEST[id]");
 	$result_recursos = mysqli_query($con, $consulta_recursos);
 	$id_anterior = $_REQUEST['id'];
-	echo $id_anterior;
 
 	if(mysqli_num_rows($result_recursos)>0){
 		$recurso=mysqli_fetch_array($result_recursos);

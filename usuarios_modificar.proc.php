@@ -16,8 +16,6 @@
 			echo $destino_new;
 	// 
 
-	echo $_REQUEST['id_usuario_seleccionado'];
-
 	if ($foto_new != "") {
 		$sql = "UPDATE usuario SET nom='$_REQUEST[nombre]', pass='$_REQUEST[pass]', rol=$_REQUEST[rol], img='$foto_new' WHERE id_user=$_REQUEST[id_usuario_seleccionado]";
 	}
@@ -25,8 +23,6 @@
 		$sql = "UPDATE usuario SET nom='$_REQUEST[nombre]', pass='$_REQUEST[pass]', rol=$_REQUEST[rol] WHERE id_user=$_REQUEST[id_usuario_seleccionado]";
 	}
 	
-
-	echo $sql;
 
 	//lanzamos la sentencia sql
 	$datos = mysqli_query($con, $sql);

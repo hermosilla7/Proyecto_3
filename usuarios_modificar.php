@@ -10,7 +10,6 @@
 	$consulta_usuarios = ("SELECT * FROM usuario where id_user = $_REQUEST[id]");
 	$result_usuarios = mysqli_query($con, $consulta_usuarios);
 	$id_anterior = $_REQUEST['id'];
-	echo $id_anterior;
 
 	if(mysqli_num_rows($result_usuarios)>0){
 		$user=mysqli_fetch_array($result_usuarios);

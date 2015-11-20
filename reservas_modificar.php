@@ -6,11 +6,9 @@
 	$nomUsuari = $_SESSION['nom'];
 	$user_id = $_SESSION['id_user'];
 
-	// echo $_REQUEST['id'];
 	$consulta_reservas = ("SELECT * FROM reserva where id_reserva = $_REQUEST[id]");
 	$result_reservas = mysqli_query($con, $consulta_reservas);
 	$id_anterior = $_REQUEST['id'];
-	echo $id_anterior;
 
 	if(mysqli_num_rows($result_reservas)>0){
 		$reserva=mysqli_fetch_array($result_reservas);
@@ -24,11 +22,11 @@
 				while ($tipo=mysqli_fetch_array($tipos)){
 						echo "<option value='$tipo[id_recurso]'";
 
-						if($tipo['id_recurso']==$recurso['nombre']){
+						if($tipo['id_recurso']==$reserva['id_recurso']){
 							echo " selected";
 						}
 
-						echo ">$tipo[nombre]</option>";
+						echo utf8_encode(">$tipo[nombre]</option>");
 					}
 	        	?>
 	    <input type="text" id="fecha_reserva" name="fecha_reserva" />
@@ -45,7 +43,6 @@
 
 		<input type="hidden" name="id_anterior" value="<?php echo $id_anterior; ?>">
 
-		<!-- <input type="hidden" name="foto_usuario" value="<?php echo $foto_new; ?>"> -->
 
 		<input id="boton" type="submit" value="Guardar">
 

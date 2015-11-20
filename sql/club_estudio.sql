@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 06-11-2015 a las 12:35:51
+-- Tiempo de generación: 20-11-2015 a las 12:04:47
 -- Versión del servidor: 5.6.26
 -- Versión de PHP: 5.6.12
 
@@ -54,7 +54,7 @@ CREATE TABLE IF NOT EXISTS `incidencia` (
   `id_recurso` int(11) NOT NULL,
   `id_usuario` int(11) NOT NULL,
   `fecha` datetime NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=14 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Volcado de datos para la tabla `incidencia`
@@ -84,32 +84,33 @@ INSERT INTO `incidencia` (`id_incidencia`, `titulo`, `descripcion`, `id_recurso`
 CREATE TABLE IF NOT EXISTS `recurso` (
   `id_recurso` int(11) NOT NULL,
   `nombre` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
-  `descr` longtext COLLATE utf8_unicode_ci NOT NULL,
+  `descr` varchar(255) CHARACTER SET utf8 COLLATE utf8_bin NOT NULL,
   `img` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
   `estado` varchar(1) COLLATE utf8_unicode_ci NOT NULL,
   `categoria` varchar(1) COLLATE utf8_unicode_ci NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=16 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=20 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Volcado de datos para la tabla `recurso`
 --
 
 INSERT INTO `recurso` (`id_recurso`, `nombre`, `descr`, `img`, `estado`, `categoria`) VALUES
-(1, 'Carro portátiles', 'Carro de portátiles situado en recepción, contiene de 25 portátiles Compaq y sus cargadores, todos ellos numerados. Especificaciones: Windows 7, procesador Intel I5, 4GB de memoria RAM, disco duro de 500 GB, pantalla 15.6”, conectores VGA y HDMI.\nLa llave de este carro está en secretaría y ha de ser retornada junto al carro.\n', 'carro.jpg', '1', '3'),
+(1, 'Carro portátiles', 'Carro de portátiles situado en recepción, contiene de 25 portátiles Compaq y sus cargadores, todos ellos numerados. Especificaciones: Windows 7, procesador Intel I5, 4GB de memoria RAM, disco duro de 500 GB, pantalla 15.6'', conectores VGA y HDMI.', 'carro.jpg', '0', '3'),
 (2, 'Despacho entrevistas', 'Despacho  para entrevistas situado en la primera planta detrás de recepción, puerta 01. Consta de un escritorio y dos sillas de oficina.', 'despacho1.jpg', '0', '2'),
-(3, 'Despacho reuniones', 'Despacho de reuniones y estudio en grupo, situado en la primera planta detrás de recepción, puerta 02. Consta de una mesa redonda y cinco sillas de oficina.', 'despacho2.jpg', '1', '2'),
-(4, 'Aula informática norte', 'Aula de informática situada en la sala 10. Consta de dieciséis equipos sobremesa, pizarra y un proyector. Especificaciones de los equipos: Windows 7, procesador Intel I3, 2GB de memoria RAM, disco duro de 500GB.', 'informatica1.jpg', '1', '1'),
-(5, 'Aula informática sur', 'Aula de informática situada en la sala 11. Consta de diecinueve equipos portátiles, pizarra y un proyector. Especificaciones de los equipos: Windows 7, procesador Intel I5, 4GB de memoria RAM, disco duro de 1TB.', 'informatica2.jpg', '1', '1'),
+(3, 'Despacho reuniones', 'Despacho de reuniones y estudio en grupo, situado en la primera planta detrás de recepción, puerta 02. Consta de una mesa redonda y cinco sillas de oficina.', 'despacho2.jpg', '0', '2'),
+(4, 'Aula informática norte', 'Aula de informática situada en la sala 3. Consta de diecinueve equipos portátiles, pizarra y un proyector. Especificaciones de los equipos: Windows 7, procesador Intel I5, 4GB de memoria RAM, disco duro de 1TB.', 'informatica1.jpg', '0', '1'),
+(5, 'Aula informática sur', 'Aula de informática situada en la sala 11. Consta de diecinueve equipos portátiles, pizarra y un proyector. Especificaciones de los equipos: Windows 7, procesador Intel I5, 4GB de memoria RAM, disco duro de 1TB.', 'informatica2.jpg', '0', '1'),
 (6, 'Móvil Bogo', 'Teléfono multimedia Android lifeStyle 4SL-QC. Especificaciones: Procesador Quad Core, Dual SIM, pantalla 4.3”, cámara 8 Mp, batería  integrada litio, GPS, Wi-FI, Bluetooth.', 'movil1.jpg', '1', '3'),
-(7, 'Móvil HTC', 'Teléfono multimedia Windows Phone HTC 8x. Especificaciones: Procesador Qualcomm, pantalla 4.3”, cámara 8 Mp, batería  integrada litio, GPS, Wi-FI, Bluetooth.', 'movil2.jpg', '1', '3'),
+(7, 'Móvil HTC', 'Teléfono multimedia Windows Phone HTC 8x. Especificaciones: Procesador Qualcomm, pantalla 4.3”, cámara 8 Mp, batería  integrada litio, GPS, Wi-FI, Bluetooth.', 'movil2.jpg', '0', '3'),
 (8, 'Portátil Acer', 'Portátil Acer Aspire, guardado en la sala de profesores. Especificaciones: Windows 7, procesador Intel I3, 4GB de memoria RAM, disco duro de 250 GB, pantalla 15.6”, conector VGA.', 'portatil1.jpg', '1', '3'),
 (9, 'Portátil Toshiba', 'Portátil Toshiba Satellite, guardado en la sala de profesores. Especificaciones: Windows 7, procesador Intel I5, 4GB de memoria RAM, disco duro de 500 GB, pantalla 15.6”, conectores VGA y HDMI.', 'portatil2.jpg', '1', '3'),
-(10, 'Portátil HP', 'Portátil HP, pensado para diseño, guardado en la sala de profesores. Especificaciones: Windows 8, procesador Intel I7, 8GB de memoria RAM, disco duro de 500 GB, pantalla 15.6”, gráfica gt760, conectores VGA y HDMI.', 'portatil3.jpg', '1', '3'),
+(10, 'Portátil HP', 'Portátil HP, pensado para diseño, guardado en la sala de profesores. Especificaciones: Windows 8, procesador Intel I7, 8GB de memoria RAM, disco duro de 500 GB, pantalla 15.6”, gráfica gt760, conectores VGA y HDMI.', 'portatil3.jpg', '0', '3'),
 (11, 'Proyector Asus', 'Proyector Asus, guardado en la sala de profesores. Contiene mando propio. Especificaciones: Entrada VGA y HDMI, audio Estéreo, resolución nativa 800x600, peso 1.9Kg .', 'proyector.jpg', '1', '3'),
 (12, 'Sala Reuniones', 'Aula de reuniones y debates, situada en la sala 35. Espacio para 38 personas.', 'reuniones.jpg', '1', '2'),
-(13, 'Aula teoría 01', 'Aula Magna, situada en la sala 38, espacio para 157 estudiantes. Cuenta con proyector y un equipo de sobremesa', 'teoria1.jpg', '1', '1'),
+(13, 'Aula teoría 01', 'Aula Magna, situada en la sala 38, espacio para 157 estudiantes. Cuenta con proyector y un equipo de sobremesa', 'teoria1.jpg', '0', '1'),
 (14, 'Aula teoría 02', 'Aula situada en la sala 32, espacio para 40 estudiantes. Cuenta con un proyector y una pizarra táctil. ', 'teoria2.jpg', '1', '1'),
-(15, 'Aula teoría 03', 'Aula situada en la sala 30, espacio para grupos reducidos (16-20 personas). Cuenta con un proyector y una mesa de reuniones.', 'teoria3.jpg', '0', '1');
+(15, 'Aula teoría 03', 'Aula situada en la sala 30, espacio para grupos reducidos (16-20 personas). Cuenta con un proyector y una mesa de reuniones.', 'teoria3.jpg', '1', '1'),
+(16, 'Aula de prueba', 'aula de prueba dia 18/11/15 a 11.39', 'aula15.jpg', '0', '1');
 
 -- --------------------------------------------------------
 
@@ -123,24 +124,25 @@ CREATE TABLE IF NOT EXISTS `reserva` (
   `id_recurso` int(11) NOT NULL,
   `dateini` datetime NOT NULL,
   `datefi` datetime NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Volcado de datos para la tabla `reserva`
 --
 
 INSERT INTO `reserva` (`id_reserva`, `id_user`, `id_recurso`, `dateini`, `datefi`) VALUES
-(1, 1, 1, '2015-09-21 10:00:00', '2015-09-21 17:00:00'),
-(2, 1, 1, '2015-09-24 10:00:00', '2015-09-26 11:00:00'),
-(3, 2, 3, '2015-10-01 12:00:00', '2015-10-02 08:00:00'),
-(4, 2, 6, '2015-10-06 10:00:00', '2015-10-07 07:00:00'),
-(5, 2, 7, '2015-10-11 08:00:00', '2015-10-11 12:00:00'),
-(6, 2, 5, '2015-10-13 08:00:00', '2015-11-06 06:29:36'),
-(7, 2, 4, '2015-10-13 13:00:00', '2015-10-14 15:46:46'),
-(8, 2, 9, '2015-10-14 08:00:00', '2015-10-14 16:47:57'),
-(9, 2, 11, '2015-11-05 11:35:12', '2015-11-06 14:36:52'),
-(10, 2, 13, '2015-11-06 10:38:47', '2015-11-06 16:52:00'),
-(11, 2, 2, '2015-11-06 12:07:39', '2015-11-06 19:00:00');
+(1, 1, 1, '2015-11-20 11:00:00', '2015-11-20 12:00:00'),
+(2, 1, 1, '2015-11-21 15:00:00', '2015-11-21 16:00:00'),
+(3, 1, 2, '2015-11-26 10:00:00', '2015-11-26 20:00:00'),
+(4, 1, 5, '2015-11-20 11:23:39', '0000-00-00 00:00:00'),
+(5, 1, 7, '2015-11-20 11:23:45', '0000-00-00 00:00:00'),
+(6, 1, 10, '2015-11-20 11:23:48', '0000-00-00 00:00:00'),
+(7, 1, 16, '2015-11-20 11:23:52', '0000-00-00 00:00:00'),
+(8, 1, 13, '2015-11-20 11:24:40', '0000-00-00 00:00:00'),
+(9, 1, 16, '2015-12-11 10:00:00', '2015-12-11 15:00:00'),
+(10, 1, 10, '2015-11-25 15:00:00', '2015-11-25 16:00:00'),
+(11, 2, 4, '2015-11-27 10:00:00', '2015-11-27 11:00:00'),
+(12, 2, 7, '2016-01-07 11:00:00', '2016-01-07 15:00:00');
 
 -- --------------------------------------------------------
 
@@ -153,18 +155,21 @@ CREATE TABLE IF NOT EXISTS `usuario` (
   `nom` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
   `pass` varchar(30) COLLATE utf8_unicode_ci NOT NULL,
   `rol` tinyint(4) NOT NULL,
-  `img` varchar(50) COLLATE utf8_unicode_ci NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
+  `img` varchar(50) COLLATE utf8_unicode_ci NOT NULL,
+  `estado` tinyint(1) NOT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 --
 -- Volcado de datos para la tabla `usuario`
 --
 
-INSERT INTO `usuario` (`id_user`, `nom`, `pass`, `rol`, `img`) VALUES
-(1, 'us_admin', 'admin123', 1, '1.jpg'),
-(2, 'us_normal_1', 'user123', 0, '1.jpg'),
-(3, 'us_normal_2', 'user456', 0, '2.jpg'),
-(4, 'us_normal_3', 'user789', 0, '2.jpg');
+INSERT INTO `usuario` (`id_user`, `nom`, `pass`, `rol`, `img`, `estado`) VALUES
+(1, 'us_admin', 'admin123', 1, 'admin.jpg', 1),
+(2, 'us_normal_1', 'user123', 0, '1.jpg', 1),
+(3, 'us_normal_2', 'user456', 0, '2.jpg', 1),
+(4, 'us_normal_3', 'user789', 0, '3.jpg', 0),
+(5, 'us_normal_4', '123456', 0, '4.jpg', 0),
+(8, 'us_admin2', 'root', 1, 'unnamed.jpg', 1);
 
 --
 -- Índices para tablas volcadas
@@ -213,22 +218,22 @@ ALTER TABLE `categoria`
 -- AUTO_INCREMENT de la tabla `incidencia`
 --
 ALTER TABLE `incidencia`
-  MODIFY `id_incidencia` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=14;
+  MODIFY `id_incidencia` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=25;
 --
 -- AUTO_INCREMENT de la tabla `recurso`
 --
 ALTER TABLE `recurso`
-  MODIFY `id_recurso` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=16;
+  MODIFY `id_recurso` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=20;
 --
 -- AUTO_INCREMENT de la tabla `reserva`
 --
 ALTER TABLE `reserva`
-  MODIFY `id_reserva` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=12;
+  MODIFY `id_reserva` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT de la tabla `usuario`
 --
 ALTER TABLE `usuario`
-  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=5;
+  MODIFY `id_user` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=12;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
