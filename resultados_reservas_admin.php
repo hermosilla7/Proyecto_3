@@ -34,7 +34,12 @@ function mostrarReservasAdmin(){
 				echo "<br/>";
 				echo "<b>Fecha fin:</b> ";
 				echo utf8_encode($reserva['datefi']);
-				echo "<br></div><br/>";
+
+				echo "<br><a href='reservas_modificar.php?id=$reserva[id_reserva]'>
+					<i class='fa fa-pencil fa-2x fa-pull-left fa-border' title='modificar' style='color:#444444'></i>
+					</a>
+					<a href='eliminar_reserva_admin.proc.php?id=$reserva[id_reserva]'>
+					<i class='fa fa-trash-o fa-2x fa-pull-left fa-border' title='activar_desactivar' style='color:#444444'></i></a></div><br/>";
 
 				$fichero="img/$recurso[img]";
 				if(file_exists($fichero)&&(($recurso['img']) != '')){
@@ -45,6 +50,7 @@ function mostrarReservasAdmin(){
 				}
 			
 			echo "</div>";
+
 			echo"</div>";
 
 			echo "<br>";
@@ -72,7 +78,13 @@ function mostrarReservasAdmin(){
 					echo "<br/>";
 					echo "<b>Fecha fin:</b> ";
 					echo utf8_encode($reserva['datefi']);
-					echo "<br></div><br/>";
+
+					echo "<br><a href='reservas_modificar.php?id=$reserva[id_reserva]'>
+					<i class='fa fa-pencil fa-2x fa-pull-left fa-border' title='modificar' style='color:#444444'></i>
+					</a>
+					<a href='eliminar_reserva_admin.proc.php?id=$reserva[id_reserva]'>
+					<i class='fa fa-trash-o fa-2x fa-pull-left fa-border' title='activar_desactivar' style='color:#444444'></i></a></div><br/>";
+
 					$fichero="img/$recurso[img]";
 				if(file_exists($fichero)&&(($recurso['img']) != '')){
 					echo "<div class='contimg'><img src='$fichero' width='250' heigth='250' ></div>";
@@ -86,9 +98,6 @@ function mostrarReservasAdmin(){
 					echo "<br>";
 	}
 }
-
-		
-
 	mysqli_close($con);
 }
 ?>

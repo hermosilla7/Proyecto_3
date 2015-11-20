@@ -23,7 +23,7 @@
 					<div class="hov"><img src ='img/tww.png'width='50' heigth='50'/></div>
 					<div class="hov"><img src ='img/ins.png'width='50' heigth='50'/></div>
 				</div>
-				<a href="#" class="crunchify-top"><img src ="img/arrw.png" width="50px" height="50px"></a>
+				<a href="#" class="crunchify-top"><img src ="img/btt.png" width="50px" height="50px"></a>
 		</footer>
 	</body>
 </html>

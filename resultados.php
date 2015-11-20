@@ -15,10 +15,7 @@ function mostrarConsulta (){
 			echo "<br/>";
 			echo "<b>Contenido:</b> ";
 			echo utf8_encode($recurso['descr']);
-
 			echo "<br/>";
-
-
 			echo "</div><br/>";
 			echo "<div class='botonera'>";
  			              

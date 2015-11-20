@@ -1,6 +1,6 @@
 <?php
 	include 'conexion.php';
-	include 'header_admin.php';
+	include 'header.php';
 
 	//creamos la sesion
 	$nomUsuari = $_SESSION['nom'];
@@ -57,7 +57,7 @@ function validateDates($ini, $fin, $con) {
 	$message = 'La hora y/o fecha no son correctas';
 	echo "<SCRIPT type='text/javascript'>
         alert('$message');
-        window.location.replace(\"http://localhost/Proyecto_3/reservar_recurso_admin.php?id_recurso=$_REQUEST[id_recurso]\");
+        window.location.replace(\"http://localhost/Proyecto_3/reservar.php?id_recurso=$_REQUEST[id_recurso]\");
     </SCRIPT>";
 	// header("Location: abc_recursos.php");
 } else {
@@ -71,7 +71,7 @@ function validateDates($ini, $fin, $con) {
 	$message = 'Reserva realizada';
 	echo "<SCRIPT type='text/javascript'> //not showing me this
         alert('$message');
-        window.location.replace(\"http://localhost/Proyecto_3/abc_recursos.php\");
+        window.location.replace(\"http://localhost/Proyecto_3/user.php\");
     </SCRIPT>";
 }
 		mysqli_close($con);
