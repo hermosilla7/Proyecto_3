@@ -1,0 +1,15 @@
+GitHub: https://github.com/hermosilla7/Proyecto_3
+Proyecto_3: http://club-estudio-mateohermosilla.esy.es/
+Alojamiento: http://hostinger.es/
+Usuario: 10000584.joan23@fje.edu
+Contraseña: GuGeBuSe
+MySql DB: u344381238_club
+MySql User: u344381238_admin
+MySql Host: mysql.hostinger.es
+Contraseña DB: admin123
+
+Usuarios acceso:
+- us_admin
+pass: admin123 (Administrador)
+- us_normal_1
+pass: user123 (Usuario)
